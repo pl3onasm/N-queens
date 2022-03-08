@@ -46,8 +46,11 @@ def getQueens(fr,fc):
   return n-j
 
 def stringify():
-  return "\n".join(["".join(['Q' if j == q else '.' 
-          for j in range(n)]) for q in queens])+'\n\n'
+  out = '['
+  for i,q in enumerate(queens):
+    out += str(q)
+    if i<n-1: out += ',' if not i or i%25 else '\n'
+  return out + ']'
 
 def repair(rem,fr,steps):
   s = 0
@@ -86,14 +89,14 @@ def getFileNumber(path):
 if __name__ == "__main__":
   if len(sys.argv) == 2:
     start = perf_counter()
-    output = solver(int(sys.argv[1]))
+    qns = solver(int(sys.argv[1]))
     end = perf_counter()
     info = (f"\n====<<  Solution for {sys.argv[1]}-queens  >>====\n\n"
           + f"Execution time: {end-start:.3f}\n\n")
   elif len(sys.argv) == 3:
     fx,fy = sys.argv[2].strip('[]').split(',')
     start = perf_counter()
-    output = solver(int(sys.argv[1]),(int(fx),int(fy)))
+    qns = solver(int(sys.argv[1]),(int(fx),int(fy)))
     end = perf_counter()
     info = (f"\n====<<  Solution for {sys.argv[1]}-queens with" 
           + f" fixed location ({fx},{fy})  >>====\n\n"
@@ -105,9 +108,13 @@ if __name__ == "__main__":
   if not os.path.exists(path): 
     os.makedirs(path)
 	
+  board = "\n".join(["".join(['Q' if j == q else '.' 
+          for j in range(n)]) for q in queens])+'\n\n' 
   fileNum = getFileNumber(path)
   outFile = path + f"/{fileNum}.out"
+  output = info  + 'Queen positions:\n\n' + qns
+  if n < 200: output += '\n\n>> Chessboard <<\n\n' + board
 	
   with open(outFile, 'w', encoding = "utf-8") as f:
-    f.write(info + output)
+    f.write(output)
   
