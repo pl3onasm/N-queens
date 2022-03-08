@@ -25,7 +25,7 @@ def undoInitSwap(i,j):
 def getQueens(fr,fc):
   global queens
   queens, j = [i for i in range(n) if i != fc], 0
-  if fr:
+  if fr != None:
     queens.insert(fr,fc)
     ndiags[n+fr-fc-1] += 1; pdiags[fr+fc] += 1
   for _ in range(3*n):
@@ -38,7 +38,9 @@ def getQueens(fr,fc):
       else: undoInitSwap(k,j)
   for i in range(j,n):
     if i != fr:
-      k = randint(i,n-1)
+      while True:
+        k = randint(i,n-1)
+        if k != fr: break
       initSwap(k,i)
   return n-j
 
@@ -73,10 +75,10 @@ def solver(size,fixed=(None,None)):
 
 if __name__ == "__main__":
   if len(sys.argv) == 2:
-      print(solver(int(sys.argv[1])))
+    print(solver(int(sys.argv[1])))
   elif len(sys.argv) == 3:
-      fx,fy = sys.argv[2].strip('[]').split(',')
-      print(solver(int(sys.argv[1]),(int(fx),int(fy))))
+    fx,fy = sys.argv[2].strip('[]').split(',')
+    print(solver(int(sys.argv[1]),(int(fx),int(fy))))
   else:
     raise ValueError("Incorrect input") 
   
