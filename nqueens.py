@@ -116,7 +116,7 @@ if __name__ == "__main__":
     output = info  + 'Queen positions:\n\n' + stringify()
     if n < 200: output += '\n>> Chessboard <<\n\n' + board
   else:
-    output = info + "\nThere is no solution for the given problem.\n"
+    output = info + "\nThere is no solution for the given problem.\n\n"
 	
   with open(outFile, 'w', encoding = "utf-8") as f:
     f.write(output)
