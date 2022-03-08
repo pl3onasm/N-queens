@@ -26,7 +26,7 @@ python3 nqueens.py 10 [2,8]
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;
 
-<p align="center" width="100%">
+<p align="center" width="85%">
 <img src="8queens.png"
      alt="8-queens solution"
      style="float: left; padding-top:100px" />  
