@@ -88,14 +88,14 @@ if __name__ == "__main__":
     start = perf_counter()
     output = solver(int(sys.argv[1]))
     end = perf_counter()
-    info = (f"====<<  Solution for {sys.argv[1]}-queens  >>====\n\n"
+    info = (f"\n====<<  Solution for {sys.argv[1]}-queens  >>====\n\n"
           + f"Execution time: {end-start:.3f}\n\n")
   elif len(sys.argv) == 3:
     fx,fy = sys.argv[2].strip('[]').split(',')
     start = perf_counter()
     output = solver(int(sys.argv[1]),(int(fx),int(fy)))
     end = perf_counter()
-    info = (f"====<<  Solution for {sys.argv[1]}-queens with" 
+    info = (f"\n====<<  Solution for {sys.argv[1]}-queens with" 
           + f" fixed location ({fx},{fy})  >>====\n\n"
           + f"Execution time: {end-start:.3f}\n\n")
   else:
