@@ -50,7 +50,7 @@ def stringify():
   for i,q in enumerate(queens):
     out += str(q)
     if i<n-1: out += ',' if not i or i%25 else '\n'
-  return out + ']'
+  return out + ']\n'
 
 def repair(rem,fr,steps):
   s = 0
@@ -113,7 +113,7 @@ if __name__ == "__main__":
   fileNum = getFileNumber(path)
   outFile = path + f"/{fileNum}.out"
   output = info  + 'Queen positions:\n\n' + qns
-  if n < 200: output += '\n\n>> Chessboard <<\n\n' + board
+  if n < 200: output += '\n>> Chessboard <<\n\n' + board
 	
   with open(outFile, 'w', encoding = "utf-8") as f:
     f.write(output)
