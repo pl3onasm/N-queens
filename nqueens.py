@@ -47,7 +47,7 @@ def getQueens(fr,fc):
 
 def stringify():
   return "\n".join(["".join(['Q' if j == q else '.' 
-          for j in range(n)]) for q in queens])+'\n'
+          for j in range(n)]) for q in queens])+'\n\n'
 
 def repair(rem,fr,steps):
   s = 0
