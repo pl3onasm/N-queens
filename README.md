@@ -1,7 +1,6 @@
 # ♛ N-queens
 
-
-
+This program returns a solution for a given size of the well-kown n-queens problem. The implementation uses an iterated local search algorithm which is guided by a minimal conflicts heuristic.
 
 ## ♟ Usage
 
