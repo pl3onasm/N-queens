@@ -1,3 +1,12 @@
+#  ┌─────────────────────────────────────────────────────────┐
+#  │  File name: nqueens.py                                  │
+#  │  Author: David De Potter, pl3onasm@gmail.com            │
+#  │  License: refer to the license file in this repository  │
+#  │  Description: computes a solution for a given size of   │
+#  │  the n-qeens problem, either with or without one fixed  │
+#  │  queen position                                         │ 
+#  └─────────────────────────────────────────────────────────┘
+
 from random import randint
 import sys, os
 from time import perf_counter
