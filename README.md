@@ -11,7 +11,7 @@ To run the program, make sure to provide the input size as an argument. For exam
 python3 nqueens.py 250
 ```
 
-The same program can also be used with one fixed location, indicated its coordinates. For example:
+The same program can also be used with one fixed location, indicated by its coordinates. For example:
 
 ```
 python3 nqueens.py 10 [2,8]
