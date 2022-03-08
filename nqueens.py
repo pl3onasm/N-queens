@@ -45,13 +45,6 @@ def getQueens(fr,fc):
       initSwap(k,i)
   return n-j
 
-def stringify():
-  out = '['
-  for i,q in enumerate(queens):
-    out += str(q)
-    if i<n-1: out += ',' if not i or i%25 else '\n'
-  return out + ']\n'
-
 def repair(rem,fr,steps):
   s = 0
   for i in range(n-rem,n):
@@ -74,7 +67,7 @@ def solver(size,fixed=(None,None)):
     ndiags = (2*n-1)*[0]; pdiags = (2*n-1)*[0]
     rem = getQueens(*fixed); its += 1
     solution = repair(rem,fixed[0],2*n) 
-    if solution: return stringify()
+    if solution: return queens
   return None
 
 def getFileNumber(path):
@@ -86,17 +79,24 @@ def getFileNumber(path):
     return 1 + files.pop()
   return 1
 
+def stringify():
+  out = '['
+  for i,q in enumerate(queens):
+    out += str(q)
+    if i<n-1: out += ',' if not i or i%25 else '\n'
+  return out + ']\n'
+
 if __name__ == "__main__":
   if len(sys.argv) == 2:
     start = perf_counter()
-    qns = solver(int(sys.argv[1]))
+    sol = solver(int(sys.argv[1]))
     end = perf_counter()
     info = (f"\n====<<  Solution for {sys.argv[1]}-queens  >>====\n\n"
           + f"Execution time: {end-start:.3f}\n\n")
   elif len(sys.argv) == 3:
     fx,fy = sys.argv[2].strip('[]').split(',')
     start = perf_counter()
-    qns = solver(int(sys.argv[1]),(int(fx),int(fy)))
+    sol = solver(int(sys.argv[1]),(int(fx),int(fy)))
     end = perf_counter()
     info = (f"\n====<<  Solution for {sys.argv[1]}-queens with" 
           + f" fixed location ({fx},{fy})  >>====\n\n"
@@ -107,13 +107,16 @@ if __name__ == "__main__":
   path = os.getcwd() + "/output"
   if not os.path.exists(path): 
     os.makedirs(path)
-	
-  board = "\n".join(["".join(['Q' if j == q else '.' 
-          for j in range(n)]) for q in queens])+'\n\n' 
   fileNum = getFileNumber(path)
   outFile = path + f"/{fileNum}.out"
-  output = info  + 'Queen positions:\n\n' + qns
-  if n < 200: output += '\n>> Chessboard <<\n\n' + board
+
+  if sol:
+    board = "\n".join(["".join(['Q' if j == q else '.' 
+          for j in range(n)]) for q in queens])+'\n\n' 
+    output = info  + 'Queen positions:\n\n' + stringify()
+    if n < 200: output += '\n>> Chessboard <<\n\n' + board
+  else:
+    output = info + "\nThere is no solution for the given problem.\n"
 	
   with open(outFile, 'w', encoding = "utf-8") as f:
     f.write(output)
