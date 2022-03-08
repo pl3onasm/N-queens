@@ -55,7 +55,7 @@ def repair(rem,fr,steps):
       while True:
         if s == steps: return False
         j = randint(0,n-1)
-        if j not in [i,fr]:
+        if j not in {i,fr}:
           s += 1; swap(i,j)
           if isAttacked(i) or isAttacked(j): swap(i,j)
           else: break
@@ -65,7 +65,7 @@ def solver(size,fixed=(None,None)):
   global ndiags, pdiags, n
   n = size; its = 0
   if n == 1: return "Q\n"
-  if n in {2,3}: return None
+  if n < 4: return None
   while its < 100:
     ndiags = (2*n-1)*[0]; pdiags = (2*n-1)*[0]
     rem = getQueens(*fixed); its += 1
