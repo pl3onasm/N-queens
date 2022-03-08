@@ -1,4 +1,3 @@
-from doctest import master
 from random import randint
 import sys
 n = ndiags = pdiags = queens = None
