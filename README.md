@@ -1,4 +1,4 @@
-# ♕ N-queens
+# ♛ N-queens
 
 
 
