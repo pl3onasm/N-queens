@@ -1,5 +1,6 @@
 from random import randint
-import sys
+import sys, os
+from time import perf_counter
 n = ndiags = pdiags = queens = None
 
 def isAttacked(j):
@@ -73,12 +74,40 @@ def solver(size,fixed=(None,None)):
     if solution: return stringify()
   return None
 
+def getFileNumber(path):
+  files = os.listdir(path)
+  if files:
+    for idx,file in enumerate(files):
+      files[idx] = int(file[:-4])
+    files.sort()
+    return 1 + files.pop()
+  return 1
+
 if __name__ == "__main__":
   if len(sys.argv) == 2:
-    print(solver(int(sys.argv[1])))
+    start = perf_counter()
+    output = solver(int(sys.argv[1]))
+    end = perf_counter()
+    info = (f"====<<  Solution for {sys.argv[1]}-queens  >>====\n\n"
+          + f"Execution time: {end-start:.3f}\n\n")
   elif len(sys.argv) == 3:
     fx,fy = sys.argv[2].strip('[]').split(',')
-    print(solver(int(sys.argv[1]),(int(fx),int(fy))))
+    start = perf_counter()
+    output = solver(int(sys.argv[1]),(int(fx),int(fy)))
+    end = perf_counter()
+    info = (f"====<<  Solution for {sys.argv[1]}-queens with" 
+          + f" fixed location ({fx},{fy})  >>====\n\n"
+          + f"Execution time: {end-start:.3f}\n\n")
   else:
     raise ValueError("Incorrect input") 
+
+  path = os.getcwd() + "/output"
+  if not os.path.exists(path): 
+    os.makedirs(path)
+	
+  fileNum = getFileNumber(path)
+  outFile = path + f"/{fileNum}.out"
+	
+  with open(outFile, 'w', encoding = "utf-8") as f:
+    f.write(info + output)
   
