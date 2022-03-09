@@ -10,10 +10,10 @@ The program uses a one-dimensional list to represent a particular queen configur
 This list represents a 4x4 chessboard where the four queens are positioned at locations (0,1), (1,3), (2,0), and (3,2). Graphically this valid solution to the 4-queens problem is represented as follows:
 
 ```
-..Q.
-Q...
-...Q
 .Q..
+...Q
+Q...
+..Q.
 ```
 
 ## ♟ Usage
