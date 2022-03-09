@@ -30,7 +30,6 @@ If no solution exists, the program will output an appropriate message.
 
 ## ♟ References  
 
-- Minton, S., Johnston, M. D., Philips, A. B., & Laird, P. A Heuristic Repair Method for Constralnt-Satisfaction and Scheduling Problems. Practical Approaches to Scheduling and Planning, 131.
 - Minton, S., Johnston, M. D., Philips, A. B., & Laird, P. (1992). Minimizing conflicts: a heuristic repair method for constraint satisfaction and scheduling problems. Artificial intelligence, 58(1-3), 161-205.
 - Russell, S., & Norvig, P. (2010). Artificial Intelligence: A Modern Approach.
 - Sosic, R., & Gu, J. (1990). A polynomial time algorithm for the n-queens problem. ACM SIGART Bulletin, 1(3), 7-11.
