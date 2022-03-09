@@ -5,15 +5,16 @@ This program returns a solution for a given size of the well-kown n-queens probl
 The program uses a one-dimensional list to represent a particular queen configuration on the chessboard. The list indices specify the row numbers of each queen position, and the actual values stored at those indices indicate the corresponding column numbers. Note that the used board indices start from zero and increase from the top left to the bottom right. For instance:
 
 ```
-[1,3,0,2]
+[3,0,2,4,1]
 ```
-This list represents a 4x4 chessboard where the four queens are positioned at locations (0,1), (1,3), (2,0), and (3,2). Graphically this valid (nonunique) solution to the 4-queens problem is represented as follows:
+This list represents a 5x5 chessboard where the five queens are positioned at locations (3,0), (1,0), (2,2), (3,4) and (4,1). Graphically, this valid (nonunique) solution to the 5-queens problem is represented as follows (each dot denotes an empty square on the board):
 
 ```
-.Q..
-...Q
-Q...
-..Q.
+...Q.
+Q....
+..Q..
+....Q
+.Q...
 ```
 
 ## ♟ Usage
