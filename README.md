@@ -4,20 +4,21 @@ This program returns a solution for a given size of the well-kown n-queens probl
 
 ## ♟ Usage
 
+The program uses a one-dimensional list to represent a chessboard: it only consists of all the queen positions. The list indices specify the row numbers, and the actual values stored at those indices represent the column numbers.  
 To run the program, make sure to provide the input size n as an argument. For example:
 
 ```
 python3 nqueens.py 250
 ```
 
-The above command will write a solution to a .out file in the output folder (which will be created if it does not exist) of the current working directory. For sizes n < 200 a graphical representation of the chessboard will be included. For larger problem sizes, the output will only consist of a list of the queen positions.  
+The above command will write a solution to a .out file in the output folder (which will be created if it does not exist) of the current working directory. For sizes n < 200, a graphical representation of the chessboard is included. For larger problem sizes, the output only consists of a list of all the queen positions.  
 The same program also allows for specifying one fixed board location, indicated by its coordinates. For example:  
 
 ```
 python3 nqueens.py 10 [2,8]
 ```
 
-This command will generate a solution for a problem with 10 queens, of which one is set to take the spot with row index 2 and column index 8.  
+This command will generate a solution for a problem with 10 queens, of which one is set to take the spot with row index 2 and column index 8 (indices start from zero and increase from the top left to the bottom right).  
 If no solution exists, the program will output an appropriate message.    
 
 
