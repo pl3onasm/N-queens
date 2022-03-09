@@ -17,10 +17,9 @@ def isAttacked(j):
 
 def swap(i,j):
   y = queens[i]; z = queens[j]
-  ndiags[n+i-y-1] -=1; pdiags[i+y] -=1
-  ndiags[n+j-z-1] -=1; pdiags[j+z] -=1
-  ndiags[n+i-z-1] +=1; pdiags[i+z] +=1
-  ndiags[n+j-y-1] +=1; pdiags[j+y] +=1
+  ndiags[n+i-y-1] -=1; pdiags[i+y] -=1; pdiags[j+y] +=1
+  ndiags[n+j-z-1] -=1; pdiags[j+z] -=1; pdiags[i+z] +=1
+  ndiags[n+j-y-1] +=1; ndiags[n+i-z-1] +=1; 
   queens[i],queens[j] = queens[j],queens[i]
 
 def initSwap(i,j):
