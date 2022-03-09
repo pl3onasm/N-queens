@@ -2,13 +2,12 @@
 
 This program returns a solution for a given size of the well-kown n-queens problem. The implementation uses an iterated local search algorithm which is guided by a minimal conflicts heuristic.  
 &nbsp;&nbsp;  
-The program uses a one-dimensional list to represent a particular queen configuration on the chessboard. The list indices specify the row numbers of each queen position, and the actual values stored at those indices indicate the corresponding column numbers. Note that the used board indices start from zero and increase from the top left to the bottom right.  
-For instance:
+The program uses a one-dimensional list to represent a particular queen configuration on the chessboard. The list indices specify the row numbers of each queen position, and the actual values stored at those indices indicate the corresponding column numbers. Note that the used board indices start from zero and increase from the top left to the bottom right. For instance:
 
 ```
 [1,3,0,2]
 ```
-The above list represents a 4x4 chessboard where 4 queens are positioned at locations (0,1),(1,3),(2,0),(3,2).  
+This list represents a 4x4 chessboard where 4 queens are positioned at locations (0,1),(1,3),(2,0),(3,2).  
 
 ## ♟ Usage
 
