@@ -7,7 +7,7 @@ The program uses a one-dimensional list to represent a particular queen configur
 ```
 [3,0,2,4,1]
 ```
-This list represents a 5x5 chessboard where the five queens are positioned at locations (3,0), (1,0), (2,2), (3,4) and (4,1). Graphically, this valid (nonunique) solution to the 5-queens problem is represented as follows (each dot denotes an empty square on the board):
+This list represents a 5x5 chessboard where the five queens are positioned at locations (0,3), (1,0), (2,2), (3,4) and (4,1). Graphically, this valid (nonunique) solution to the 5-queens problem is represented as follows (each dot denotes an empty square on the board):
 
 ```
 ...Q.
