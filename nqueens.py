@@ -32,7 +32,7 @@ def main(n,fixed=(None,None)):
     sol = solver(n,fixed)
     end = perf_counter()
     info = (f"\n====<<  Solution for {sys.argv[1]}-queens  >>====\n\n"
-          + f"Execution time: {end-start:.3f}\n\n")
+          + f"Execution time: {end-start:.3f} s\n\n")
   else:
     fx,fy = sys.argv[2].strip('[]').split(',')
     start = perf_counter()
@@ -40,7 +40,7 @@ def main(n,fixed=(None,None)):
     end = perf_counter()
     info = (f"\n====<<  Solution for {sys.argv[1]}-queens with" 
           + f" fixed location ({fx},{fy})  >>====\n\n"
-          + f"Execution time: {end-start:.3f}\n\n")
+          + f"Execution time: {end-start:.3f} s\n\n")
 
   path = os.getcwd() + "/output"
   if not os.path.exists(path): 
