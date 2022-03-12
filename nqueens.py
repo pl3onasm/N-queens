@@ -1,5 +1,5 @@
 #  ┌─────────────────────────────────────────────────────────┐
-#  │  File name: solver.py                                   │
+#  │  File name: nqueens.py                                  │
 #  │  Author: David De Potter, pl3onasm@gmail.com            │
 #  │  License: refer to the license file in this repository  │
 #  │  Description: this module makes sure that the output    │
