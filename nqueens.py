@@ -19,10 +19,10 @@ def getFileNumber(path):
   return 1
 
 def stringify(n,queens):
-  out = '['
+  out, lim, newline = '[', 75 if n > 120 else 40, 0
   for i,q in enumerate(queens):
-    out += str(q)
-    if i<n-1: out += ',' if not i or i%25 else '\n'
+    out += str(q); newline = 0 if newline > lim else newline+len(str(q))
+    if i<n-1: out += ',' if not i or newline else '\n'
   return out + ']\n'
 
 def main(n,fixed=(None,None)):
