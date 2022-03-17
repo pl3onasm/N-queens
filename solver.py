@@ -20,7 +20,7 @@ def delConflicts(i,j=None):
 
 def addConflicts(i,j=None):
   if not j: j = i 
-  ndiags[n+i-queens[i]-1] += 1; pdiags[i+queens[i]] += 1
+  ndiags[n+i-queens[j]-1] += 1; pdiags[i+queens[j]] += 1
 
 def swap(i,j):
   delConflicts(i); delConflicts(j)
