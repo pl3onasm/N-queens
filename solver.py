@@ -73,5 +73,5 @@ def solver(size,fixed):
   while its < 100:
     ndiags = (2*n-1)*[0]; pdiags = (2*n-1)*[0]
     rem = getQueens(*fixed); its += 1 
-    if repair(rem,fixed[0],3*n): return queens
+    if repair(rem,fixed[0],3*n):  return queens
   return None
