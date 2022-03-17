@@ -72,7 +72,6 @@ def solver(size,fixed):
   if n < 4: return None
   while its < 100:
     ndiags = (2*n-1)*[0]; pdiags = (2*n-1)*[0]
-    rem = getQueens(*fixed); its += 1
-    solution = repair(rem,fixed[0],3*n) 
-    if solution: return queens
+    rem = getQueens(*fixed); its += 1 
+    if repair(rem,fixed[0],3*n): return queens
   return None
