@@ -14,25 +14,21 @@ n = ndiags = pdiags = queens = None
 def isAttacked(j):
   return pdiags[j+queens[j]] > 1 or ndiags[n+j-queens[j]-1] > 1
 
-def delConflicts(i,j=None):
+def updateConflicts(i,val,j=None):
   if not j: j = i 
-  ndiags[n+i-queens[j]-1] -= 1; pdiags[i+queens[j]] -= 1
-
-def addConflicts(i,j=None):
-  if not j: j = i 
-  ndiags[n+i-queens[j]-1] += 1; pdiags[i+queens[j]] += 1
+  ndiags[n+i-queens[j]-1] += val; pdiags[i+queens[j]] += val
 
 def swap(i,j):
-  delConflicts(i); delConflicts(j)
-  addConflicts(i,j); addConflicts(j,i)
+  updateConflicts(i,-1); updateConflicts(j,-1)
+  updateConflicts(i,1,j); updateConflicts(j,1,i)
   queens[i],queens[j] = queens[j],queens[i]
 
 def initSwap(i,j):
   queens[i],queens[j] = queens[j],queens[i]
-  addConflicts(j)
+  updateConflicts(j,1)
 
 def undoInitSwap(i,j):
-  delConflicts(j)
+  updateConflicts(j,-1)
   queens[i],queens[j] = queens[j],queens[i]
   
 def getQueens(fr,fc):
