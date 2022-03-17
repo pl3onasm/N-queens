@@ -12,10 +12,9 @@ from random import randint
 n = ndiags = pdiags = queens = None
 
 def isAttacked(j):
-  y = queens[j]
-  return pdiags[y+j] > 1 or ndiags[n+j-y-1] > 1
+  return pdiags[j+queens[j]] > 1 or ndiags[n+j-queens[j]-1] > 1
 
-def remConflicts(i,j=None):
+def delConflicts(i,j=None):
   if not j: j = i 
   ndiags[n+i-queens[j]-1] -= 1; pdiags[i+queens[j]] -= 1
 
@@ -24,7 +23,7 @@ def addConflicts(i,j=None):
   ndiags[n+i-queens[i]-1] += 1; pdiags[i+queens[i]] += 1
 
 def swap(i,j):
-  remConflicts(i); remConflicts(j)
+  delConflicts(i); delConflicts(j)
   addConflicts(i,j); addConflicts(j,i)
   queens[i],queens[j] = queens[j],queens[i]
 
@@ -33,7 +32,7 @@ def initSwap(i,j):
   addConflicts(j)
 
 def undoInitSwap(i,j):
-  remConflicts(j)
+  delConflicts(j)
   queens[i],queens[j] = queens[j],queens[i]
   
 def getQueens(fr,fc):
