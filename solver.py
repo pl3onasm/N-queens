@@ -43,7 +43,7 @@ def getQueens(fr,fc):
     if k not in {j,fr}:
       initSwap(k,j)
       if not isAttacked(j): j += 1
-      else: undoInitSwap(k,j)
+      else:  undoInitSwap(k,j)
   for i in range(j,n):
     if i != fr:
       while True:
