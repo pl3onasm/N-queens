@@ -15,19 +15,25 @@ def isAttacked(j):
   y = queens[j]
   return pdiags[y+j] > 1 or ndiags[n+j-y-1] > 1
 
+def remConflicts(i,j=None):
+  if not j: j = i 
+  ndiags[n+i-queens[j]-1] -= 1; pdiags[i+queens[j]] -= 1
+
+def addConflicts(i,j=None):
+  if not j: j = i 
+  ndiags[n+i-queens[i]-1] += 1; pdiags[i+queens[i]] += 1
+
 def swap(i,j):
-  y = queens[i]; z = queens[j]
-  ndiags[n+i-y-1] -=1; pdiags[i+y] -=1; pdiags[j+y] +=1
-  ndiags[n+j-z-1] -=1; pdiags[j+z] -=1; pdiags[i+z] +=1
-  ndiags[n+j-y-1] +=1; ndiags[n+i-z-1] +=1; 
+  remConflicts(i); remConflicts(j)
+  addConflicts(i,j); addConflicts(j,i)
   queens[i],queens[j] = queens[j],queens[i]
 
 def initSwap(i,j):
   queens[i],queens[j] = queens[j],queens[i]
-  y = queens[j]; pdiags[y+j] +=1; ndiags[n+j-y-1] +=1
+  addConflicts(j)
 
 def undoInitSwap(i,j):
-  y = queens[j]; pdiags[y+j] -=1; ndiags[n+j-y-1] -=1
+  remConflicts(j)
   queens[i],queens[j] = queens[j],queens[i]
   
 def getQueens(fr,fc):
@@ -43,7 +49,7 @@ def getQueens(fr,fc):
     if k not in {j,fr}:
       initSwap(k,j)
       if not isAttacked(j): j += 1
-      else:  undoInitSwap(k,j)
+      else: undoInitSwap(k,j)
   for i in range(j,n):
     if i != fr:
       while True:
