@@ -25,7 +25,7 @@ To run the program, make sure to provide the input size n as an argument. For ex
 python3 nqueens.py 250
 ```
 
-The above command will write a solution for the 250-queens problem to a .out file in the output folder (which will be created if it does not exist) located in the current working directory. For sizes n < 200, a graphical representation of the chessboard is included. For larger problem sizes, the output only consists of a list of all the queen positions.  
+The above command will write a solution for the 250-queens problem to a .out file in the output folder (which will be created if it does not exist) located in the current working directory. For sizes n < 200, a graphical representation of the chessboard is included. For larger problem sizes, the output only consists of a list containing all the queen positions.  
 The same program also allows for specifying one fixed board location, indicated by its coordinates. For example:  
 
 ```
