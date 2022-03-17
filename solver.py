@@ -40,7 +40,7 @@ def getQueens(fr,fc):
     if j == fr: j += 1
     if j == n: break
     k = randint(j,n-1)
-    if k not in [j,fr]:
+    if k not in {j,fr}:
       initSwap(k,j)
       if not isAttacked(j): j += 1
       else: undoInitSwap(k,j)
@@ -73,5 +73,5 @@ def solver(size,fixed):
   while its < 100:
     ndiags = (2*n-1)*[0]; pdiags = (2*n-1)*[0]
     rem = getQueens(*fixed); its += 1 
-    if repair(rem,fixed[0],3*n):  return queens
+    if repair(rem,fixed[0],3*n): return queens
   return None
